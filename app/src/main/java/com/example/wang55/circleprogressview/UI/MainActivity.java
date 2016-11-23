@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
             if(curProgress!=100){
                 curProgress+=1;
                 pView.setCurProgress(curProgress);
+                pView.setTextContent("进度"+curProgress+"%");
                 handler.postDelayed(updatePr,200);
             }
         }

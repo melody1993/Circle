@@ -6,6 +6,6 @@
         <attr name="roundWidth" format="integer"/>
         <attr name="textColor" format="color" />
         <attr name="textSize" format="dimension" />
-        <attr name="radius" format="integer"/>
+        <attr name="textContent" format="string"/>
     </declare-styleable>
 </resources>

@@ -8,8 +8,13 @@
 
     <com.example.wang55.circleprogressview.view.CircleProgressView
         android:id="@+id/pv"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_centerInParent="true"
-        app:textSize="12sp"/>
+        app:textSize="11sp"
+        app:textContent="跳过"
+        app:textColor="@android:color/holo_orange_dark"
+        app:roundColor="@android:color/darker_gray"
+        app:roundProgressColor="@android:color/holo_blue_light"
+        app:roundWidth="13"/>
 </RelativeLayout>

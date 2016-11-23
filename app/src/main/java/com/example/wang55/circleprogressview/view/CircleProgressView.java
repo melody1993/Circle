@@ -22,13 +22,13 @@ public class CircleProgressView extends View{
     private int progressColor;
     private int roundColor;
     private float textSize;
+    private String text;
     //画圆所在的矩形区域
     private  RectF mRectF;
     private  Paint mPaint;
     private Context mContext;
     private  int width;
     private  int height;
-    private int mRadius;
     public CircleProgressView(Context context) {
         this(context,null);
     }
@@ -54,7 +54,7 @@ public class CircleProgressView extends View{
         textColor=mType.getColor(R.styleable.CircleProgressView_textColor,Color.BLACK);
         textSize=mType.getDimension(R.styleable.CircleProgressView_textSize,18);
         mStrokeWidth=mType.getInteger(R.styleable.CircleProgressView_roundWidth,8);
-        mRadius=mType.getInt(R.styleable.CircleProgressView_radius,100);
+        text=mType.getString(R.styleable.CircleProgressView_textContent);
         mType.recycle();
     }
 
@@ -62,8 +62,8 @@ public class CircleProgressView extends View{
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        int width = this.getWidth();
-        int height = this.getHeight();
+         width = this.getWidth();
+         height = this.getHeight();
 
         if (width != height) {
             int min = Math.min(width, height);
@@ -89,11 +89,15 @@ public class CircleProgressView extends View{
         mPaint.setStrokeWidth(0);
         mPaint.setColor(textColor);
         mPaint.setTextSize(textSize);
-        float textwidth=mPaint.measureText("跳过");
-        canvas.drawText("跳过",width/2-textwidth/2,height/2+textSize/2,mPaint);
+        float textwidth=mPaint.measureText(text);
+        canvas.drawText(text,width/2-textwidth/2,height/2+textSize/2,mPaint);
     }
     public void setCurProgress(int progress){
         this.mCurProgress=progress;
         this.postInvalidate();//在工作线程里更新图像
+    }
+    public void setTextContent(String txt){
+        this.text=txt;
+        this.postInvalidate();
     }
 }
